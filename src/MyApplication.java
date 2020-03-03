@@ -1,3 +1,4 @@
+import ViewModel.ViewModelFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.HeaterModel;
@@ -8,10 +9,9 @@ public class MyApplication extends Application
 {
   public void start(Stage primaryStage)
   {
-    //test2
-    //test
     // Model
     HeaterModel model = new HeaterModelManager();
+    ViewModelFactory factory = new ViewModelFactory(model);
     //Thermometer bai = new Thermometer(model, "Muist", 23, 2);
     //Thermometer bai2 = new Thermometer(model, "Muist2", 13, 6);
     //Thread thread = new Thread(bai);
@@ -19,11 +19,9 @@ public class MyApplication extends Application
     //Thread thread2 = new Thread(bai2);
     //thread2.setDaemon(true);
     //thread.start();
-    //thread2.start();x`
+    //thread2.start();
     // View
-    ViewHandler view = new ViewHandler(model);
+    ViewHandler view = new ViewHandler(factory);
     view.start(primaryStage);
-    ///////2342434324
-
   }
 }
