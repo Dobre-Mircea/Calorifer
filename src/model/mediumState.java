@@ -19,6 +19,7 @@ public class mediumState implements  HeaterState
                 }
         });
         timer.start();
+
     }
 
     @Override

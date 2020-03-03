@@ -37,7 +37,7 @@ public class ViewHandler extends Application
         {
             case "heater":
                 root = loadHeaterView("HeaterView.fxml");
-                title += "Heater Controller";
+                title += "Heater Main Menu - Group 3";
                 break;
         }
         currentScene.setRoot(root);
