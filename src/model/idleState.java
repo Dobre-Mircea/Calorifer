@@ -8,6 +8,7 @@ public class idleState implements HeaterState
     public idleState(HeaterModel model)
     {
         model.setHeaterLevel("0");
+        model.getChange().firePropertyChange("heaterState", null, "0");
         completed = false;
         timer = new Thread(() -> {
             while(true)

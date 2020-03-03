@@ -25,6 +25,7 @@ public class HeaterViewModel implements PropertyChangeListener
         this.insideTemp1 = new SimpleStringProperty("Inside temp 1: ");
         this.insideTemp2 = new SimpleStringProperty("Inside temp 2: ");
         this.outsideTemp = new SimpleStringProperty("Outside temp: ");
+        this.heaterState = new SimpleStringProperty("0");
     }
 
     public StringProperty getInsideTemp1Property()
@@ -51,11 +52,15 @@ public class HeaterViewModel implements PropertyChangeListener
     public void heaterUp()
     {
         //
+        System.out.println("+");
+        model.getHeaterState().upButton(model);
     }
 
     public void heaterDown()
     {
         //
+        System.out.println("-");
+        model.getHeaterState().downButton(model);
     }
 
     @Override

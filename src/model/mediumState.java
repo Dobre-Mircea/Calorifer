@@ -8,6 +8,7 @@ public class mediumState implements  HeaterState
     public mediumState(HeaterModel model)
     {
         model.setHeaterLevel("2");
+        model.getChange().firePropertyChange("heaterState", null, "2");
         completed = false;
         timer = new Thread(() -> {
             while(true)
@@ -27,7 +28,7 @@ public class mediumState implements  HeaterState
         {
             timer.interrupt();
             System.out.println("Heater is now on LOW setting");
-            model.setState(new idleState(model));
+            model.setState(new lowState(model));
             completed = true;
         }
     }
@@ -39,7 +40,7 @@ public class mediumState implements  HeaterState
         {
             timer.interrupt();
             System.out.println("Heater is now on MAX setting");
-            model.setState(new lowState(model));
+            model.setState(new highState(model));
             completed = true;
         }
     }

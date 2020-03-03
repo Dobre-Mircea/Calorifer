@@ -7,6 +7,7 @@ public class lowState implements HeaterState
     public lowState(HeaterModel model)
     {
         model.setHeaterLevel("1");
+        model.getChange().firePropertyChange("heaterState", null, "1");
         completed = false;
         timer = new Thread(() -> {
             while(true)

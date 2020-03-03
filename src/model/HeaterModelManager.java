@@ -26,6 +26,16 @@ public class HeaterModelManager implements HeaterModel
         this.heaterState = state;
     }
 
+    public HeaterState getHeaterState()
+    {
+        return this.heaterState;
+    }
+
+    public PropertyChangeSupport getChange()
+    {
+        return this.support;
+    }
+
     public String getInsideTemp2()
     {
         return this.insideTemp2;
