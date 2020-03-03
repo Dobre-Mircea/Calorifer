@@ -24,5 +24,6 @@ public class MyApplication extends Application
     ViewHandler view = new ViewHandler(model);
     view.start(primaryStage);
     /////////////////////////////////////////////////
+    //test3
   }
 }
