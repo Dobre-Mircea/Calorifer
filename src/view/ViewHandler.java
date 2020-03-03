@@ -1,6 +1,7 @@
 package view;
 
 import ViewModel.HeaterViewModel;
+import ViewModel.ViewModelFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,69 +11,72 @@ import model.HeaterModel;
 
 public class ViewHandler extends Application
 {
-  private Stage primaryStage;
-  private Scene currentScene;
+    private Stage primaryStage;
+    private Scene currentScene;
 
-  private HeaterViewController heaterViewController;
-  private HeaterModel model;
+    private HeaterViewController heaterViewController;
+    private ViewModelFactory factory;
 
-  public ViewHandler(HeaterModel model)
-  {
-    this.model = model;
-  }
-
-  public void start(Stage primaryStage)
-  {
-    this.primaryStage = primaryStage;
-    this.currentScene = new Scene(new Region());
-    openView("temperature");
-  }
-
-  public void openView(String id)
-  {
-    Region root = null;
-    switch (id)
+    public ViewHandler(ViewModelFactory factory)
     {
-      case "temperature":
-        root = loadTemperatureView("TemperatureView.fxml");
-        break;
+        this.factory = factory;
     }
-    currentScene.setRoot(root);
 
-    String title = "";
-    if (root.getUserData() != null)
+    public void start(Stage primaryStage)
     {
-      title += root.getUserData();
+        this.primaryStage = primaryStage;
+        this.currentScene = new Scene(new Region());
+        openView("heater");
     }
-    primaryStage.setTitle(title);
-    primaryStage.setScene(currentScene);
-    primaryStage.setWidth(root.getPrefWidth());
-    primaryStage.setHeight(root.getPrefHeight());
-    primaryStage.show();
-  }
 
-  private Region loadTemperatureView(String fxmlFile)
-  {
-    if (heaterViewController == null)
+    public void openView(String id)
     {
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
-        Region root = loader.load();
-        heaterViewController = loader.getController();
-        heaterViewController.init(this, (HeaterViewModel) model, root);
-      }
-      catch (Exception e)
-      {
-        e.printStackTrace();
-      }
+        Region root = null;
+        String title = "";
+        switch (id)
+        {
+            case "heater":
+                root = loadHeaterView("HeaterView.fxml");
+                title += "Heater Controller";
+                break;
+        }
+        currentScene.setRoot(root);
+
+
+        primaryStage.setTitle(title);
+        primaryStage.setScene(currentScene);
+        primaryStage.setWidth(root.getPrefWidth());
+        primaryStage.setHeight(root.getPrefHeight());
+        primaryStage.show();
     }
-    else
+
+    public void closeView()
     {
-      heaterViewController.reset();
+        primaryStage.close();
     }
-    return heaterViewController.getRoot();
-  }
+
+    private Region loadHeaterView(String fxmlFile)
+    {
+        if (heaterViewController == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                heaterViewController = loader.getController();
+                heaterViewController.init(this, factory.getHeaterViewModel(), root);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            heaterViewController.reset();
+        }
+        return heaterViewController.getRoot();
+    }
 
 }
