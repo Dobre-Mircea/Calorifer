@@ -23,7 +23,6 @@ public class MyApplication extends Application
     // View
     ViewHandler view = new ViewHandler(model);
     view.start(primaryStage);
-    /////////////////////////////////////////////////
-    //test3
+
   }
 }
