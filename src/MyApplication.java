@@ -8,6 +8,7 @@ public class MyApplication extends Application
 {
   public void start(Stage primaryStage)
   {
+    //test2
     //test
     // Model
     HeaterModel model = new HeaterModelManager();
