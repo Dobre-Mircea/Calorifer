@@ -8,6 +8,7 @@ public class MyApplication extends Application
 {
   public void start(Stage primaryStage)
   {
+    //test
     // Model
     HeaterModel model = new HeaterModelManager();
     //Thermometer bai = new Thermometer(model, "Muist", 23, 2);
@@ -17,7 +18,7 @@ public class MyApplication extends Application
     //Thread thread2 = new Thread(bai2);
     //thread2.setDaemon(true);
     //thread.start();
-    //thread2.start();
+    //thread2.start();x`
     // View
     ViewHandler view = new ViewHandler(model);
     view.start(primaryStage);
