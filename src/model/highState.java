@@ -12,7 +12,7 @@ public class highState implements HeaterState
         completed = false;
         timer = new Thread(() -> {
                 try {
-                    Thread.sleep(4000);
+                    Thread.sleep(40000);
                     this.downButton(model);
                 } catch (InterruptedException e) {
                     System.out.println("");

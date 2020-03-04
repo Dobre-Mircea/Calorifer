@@ -1,16 +1,12 @@
 package view;
 
 import ViewModel.HeaterViewModel;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
-import model.HeaterModel;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
-public class HeaterViewController implements PropertyChangeListener
+public class HeaterViewController
 {
    @FXML private Label outsideTemp;
    @FXML private Label insideTemp1;
@@ -57,11 +53,4 @@ public class HeaterViewController implements PropertyChangeListener
       model.heaterUp();
    }
 
-   @Override
-   public void propertyChange(PropertyChangeEvent evt)
-   {
-      //Platform.runLater(this.updateButtonPressed());
-      //Platform.runLater(this::updateButtonPressed);
-      //this.updateButtonPressed();
-   }
 }

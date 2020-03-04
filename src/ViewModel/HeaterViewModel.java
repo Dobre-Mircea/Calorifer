@@ -15,6 +15,7 @@ public class HeaterViewModel implements PropertyChangeListener
     private StringProperty heaterState;
     private HeaterModel model;
 
+
     public HeaterViewModel(HeaterModel model)
     {
         this.model = model;

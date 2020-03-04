@@ -15,6 +15,7 @@ public class ViewHandler extends Application
     private Scene currentScene;
 
     private HeaterViewController heaterViewController;
+    private PopUpController popUpController;
     private ViewModelFactory factory;
 
     public ViewHandler(ViewModelFactory factory)
@@ -26,8 +27,9 @@ public class ViewHandler extends Application
     {
         this.primaryStage = primaryStage;
         this.currentScene = new Scene(new Region());
-        openView("heater");
+        this.openView("heater");
     }
+
 
     public void openView(String id)
     {
@@ -38,6 +40,10 @@ public class ViewHandler extends Application
             case "heater":
                 root = loadHeaterView("HeaterView.fxml");
                 title += "Heater Main Menu - Group 3";
+                break;
+            case "popUp":
+                root = loadPopUpView("PopUp.fxml");
+                title += "WARNING";
                 break;
         }
         currentScene.setRoot(root);
@@ -66,6 +72,7 @@ public class ViewHandler extends Application
                 Region root = loader.load();
                 heaterViewController = loader.getController();
                 heaterViewController.init(this, factory.getHeaterViewModel(), root);
+
             }
             catch (Exception e)
             {
@@ -78,5 +85,32 @@ public class ViewHandler extends Application
         }
         return heaterViewController.getRoot();
     }
+
+
+    private Region loadPopUpView(String fxmlFile)
+    {
+        if (popUpController == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                popUpController = loader.getController();
+                popUpController.init(this, factory.getPopUpViewModel(), root);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            popUpController.reset();
+        }
+        return popUpController.getRoot();
+    }
+
+
 
 }
