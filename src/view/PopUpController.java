@@ -1,22 +1,14 @@
 package view;
 
-import ViewModel.HeaterViewModel;
 import ViewModel.PopUpViewModel;
-import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 
-import java.awt.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
-public class PopUpController implements PropertyChangeListener
+public class PopUpController
 {
-    @FXML Label warningLabel;
-
     private ViewHandler viewHandler;
     private PopUpViewModel model;
     private Region root;
-
 
 
     public void init(ViewHandler viewHandler, PopUpViewModel popUpViewModel, Region root)
@@ -28,6 +20,7 @@ public class PopUpController implements PropertyChangeListener
 
     public void reset()
     {
+        model.reset();
     }
 
     public Region getRoot()
@@ -35,12 +28,4 @@ public class PopUpController implements PropertyChangeListener
         return this.root;
     }
 
-    @Override
-    public void propertyChange(PropertyChangeEvent evt)
-    {
-        if(evt.getPropertyName().equals("COLD"))
-            warningLabel.setText("COLD");
-        else if(evt.getPropertyName().equals("HOT"))
-            warningLabel.setText(("HOT"));
-    }
 }

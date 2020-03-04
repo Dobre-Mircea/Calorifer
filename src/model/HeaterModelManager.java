@@ -1,6 +1,7 @@
 package model;
 
 import ViewModel.ViewModelFactory;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 import view.ViewHandler;
 
@@ -17,15 +18,11 @@ public class HeaterModelManager implements HeaterModel
     private String heaterLevel;
 
     private HeaterState heaterState;
-    ViewModelFactory factory;
     ViewHandler view;
-    Stage primaryStage;
 
-    public void setStuff(ViewModelFactory factory, ViewHandler view, Stage primaryStage)
+    public void setStuff(ViewHandler view)
     {
-        this.factory = factory;
         this.view = view;
-        this.primaryStage = primaryStage;
     }
 
     public HeaterModelManager()
@@ -34,7 +31,7 @@ public class HeaterModelManager implements HeaterModel
         heaterState = new idleState(this);
         insideTemp1 = "20";
         insideTemp2 = "20";
-        outsideTemp = "15.00";
+        outsideTemp = "12.00";
 
     }
 
@@ -79,37 +76,41 @@ public class HeaterModelManager implements HeaterModel
         this.insideTemp1 = temp.toString();
         if(insideTemp1.length() > 5)
             this.insideTemp1 = this.insideTemp1.substring(0, 5);
-        support.firePropertyChange("insideTemp1", "muie", insideTemp1);
+        support.firePropertyChange("insideTemp1", "", insideTemp1);
 
-        if(temp < 15)
+        Platform.runLater(()->
         {
-            view.openView("popUp");
-            factory.getPopUpViewModel().cold();
-        }
-        else if(temp > 22)
+        if((temp < 15 || temp > 30) && !view.popUpOpen())
         {
-            view.openView("popUp");
-            factory.getPopUpViewModel().hot();
+                        view.openView("popUp");
         }
+        else  if(!(temp < 15 || temp > 30) && view.popUpOpen() && !(Double.parseDouble(insideTemp2) < 15 || Double.parseDouble(insideTemp2) > 30))
+
+            view.closePopUp();
+
+        });
     }
+
+        //if(!(temp < 15 || temp > 22) && view.popUpOpen())
 
     public void setInsideTemp2(Double temp)
     {
         this.insideTemp2 = temp.toString();
         if(insideTemp2.length() > 5)
             this.insideTemp2 = this.insideTemp2.substring(0, 5);
-        support.firePropertyChange("insideTemp2", "muie", insideTemp2);
+        support.firePropertyChange("insideTemp2", "", insideTemp2);
 
-        if(temp < 15)
+        Platform.runLater(()->
         {
-            view.openView("popUp");
-            factory.getPopUpViewModel().cold();
-        }
-        else if(temp > 30)
-        {
-            view.openView("popUp");
-            factory.getPopUpViewModel().hot();
-        }
+            if((temp < 15 || temp > 30) && !view.popUpOpen())
+            {
+                view.openView("popUp");
+            }
+            else  if(!(temp < 15 || temp > 30) && view.popUpOpen() && !(Double.parseDouble(insideTemp1) < 15 || Double.parseDouble(insideTemp1) > 30))
+
+                view.closePopUp();
+
+        });
     }
 
     public void setOutsideTemp(Double temp)
@@ -117,7 +118,7 @@ public class HeaterModelManager implements HeaterModel
         this.outsideTemp = temp.toString();
         if(outsideTemp.length() > 5)
             this.outsideTemp = this.outsideTemp.substring(0, 5);
-        support.firePropertyChange("outsideTemp", "sugeoba", outsideTemp);
+        support.firePropertyChange("outsideTemp", "", outsideTemp);
     }
 
     public void setHeaterLevel(String state)

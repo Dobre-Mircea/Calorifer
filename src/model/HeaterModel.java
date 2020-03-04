@@ -26,7 +26,7 @@ public interface HeaterModel extends PropertyChangeStuff {
 
     public String getInsideTemp1();
 
-    public void setStuff(ViewModelFactory factory, ViewHandler view, Stage primaryStage);
+    public void setStuff(ViewHandler view);
 
     public String getOutsideTemp();
 

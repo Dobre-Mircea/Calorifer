@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="247.0" prefWidth="471.0" spacing="10.0" userData="Temperature presenter" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HeaterViewController">
+<VBox alignment="TOP_CENTER" prefHeight="247.0" prefWidth="471.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HeaterViewController">
    <children>
       <HBox>
          <children>
@@ -28,7 +28,7 @@
             </Button>
             <VBox prefHeight="83.0" prefWidth="129.0">
                <children>
-                  <Label fx:id="outputLabel" alignment="CENTER" prefHeight="35.0" prefWidth="597.0" text="Heater Level:">
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="597.0" text="Heater Level:">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -55,7 +55,7 @@
          <children>
             <VBox prefHeight="100.0" prefWidth="157.0">
                <children>
-                  <Label fx:id="outputLabel1" alignment="CENTER" prefHeight="35.0" prefWidth="597.0" text="Inside temp 1:">
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="597.0" text="Inside temp 1:">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -65,7 +65,7 @@
             </VBox>
             <VBox prefHeight="100.0" prefWidth="157.0">
                <children>
-                  <Label fx:id="outputLabel11" alignment="CENTER" prefHeight="35.0" prefWidth="131.0" text="Outside temp:">
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="131.0" text="Outside temp:">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -75,7 +75,7 @@
             </VBox>
             <VBox prefHeight="100.0" prefWidth="155.0">
                <children>
-                  <Label fx:id="outputLabel12" alignment="CENTER" prefHeight="35.0" prefWidth="148.0" text="Inside temp 2:">
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="148.0" text="Inside temp 2:">
                      <font>
                         <Font size="18.0" />
                      </font>

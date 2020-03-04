@@ -25,7 +25,6 @@ public class HeaterViewController
    {
       this.viewHandler = viewHandler;
       this.model = model;
-      //model.addListener("insideTemp1", this);
       this.root = root;
       this.outsideTemp.textProperty().bind(model.getOutsideTempProperty());
       this.insideTemp1.textProperty().bind(model.getInsideTemp1Property());

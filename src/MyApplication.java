@@ -32,7 +32,7 @@ public class MyApplication extends Application
 
     ViewHandler view = new ViewHandler(factory);
 
-    model.setStuff(factory, view, primaryStage);
+    model.setStuff(view);
 
     view.start(primaryStage);
 
