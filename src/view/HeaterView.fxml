@@ -3,12 +3,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="247.0" prefWidth="471.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HeaterViewController">
+<VBox alignment="TOP_CENTER" prefHeight="325.0" prefWidth="471.0" spacing="10.0" style="-fx-background-color: #949494;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HeaterViewController">
    <children>
       <HBox>
          <children>
@@ -51,7 +53,7 @@
          </padding>
       </HBox>
       <Line endX="364.29290771484375" endY="-0.7550358176231384" startX="-100.0" />
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="83.0" prefWidth="471.0">
          <children>
             <VBox prefHeight="100.0" prefWidth="157.0">
                <children>
@@ -60,29 +62,51 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="insideTemp1" alignment="CENTER" prefHeight="41.0" prefWidth="155.0" text="Inside temp 1:" textAlignment="CENTER" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Circle fill="RED" layoutX="77.0" layoutY="71.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Label fx:id="insideTemp1" alignment="CENTER" layoutY="39.0" prefHeight="41.0" prefWidth="155.0" text="00.00" textAlignment="CENTER">
+                           <font>
+                              <Font size="43.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </VBox>
             <VBox prefHeight="100.0" prefWidth="157.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="131.0" text="Outside temp:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="outsideTemp" alignment="CENTER" prefHeight="41.0" prefWidth="157.0" text="Outside temp: " />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Circle fill="#09ff00" layoutX="79.0" layoutY="94.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Label alignment="CENTER" layoutY="-4.0" prefHeight="35.0" prefWidth="157.0" text="Outside temp:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="outsideTemp" alignment="CENTER" layoutY="62.0" prefHeight="41.0" prefWidth="157.0" text="00.00">
+                           <font>
+                              <Font size="43.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </VBox>
-            <VBox prefHeight="100.0" prefWidth="155.0">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="148.0" text="Inside temp 2:">
+                  <Circle fill="RED" layoutX="79.0" layoutY="94.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+                  <Label fx:id="insideTemp2" alignment="CENTER" layoutX="23.0" layoutY="62.0" prefHeight="41.0" prefWidth="111.0" text="00.00" textAlignment="CENTER">
+                     <font>
+                        <Font size="43.0" />
+                     </font></Label>
+                  <Label alignment="CENTER" layoutX="1.0" layoutY="-4.0" prefHeight="35.0" prefWidth="156.0" text="Inside temp 2:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="insideTemp2" alignment="CENTER" prefHeight="41.0" prefWidth="184.0" text="Inside temp 2:" textAlignment="CENTER" />
                </children>
-            </VBox>
+            </AnchorPane>
          </children>
       </HBox>
    </children>
