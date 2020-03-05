@@ -44,6 +44,7 @@ public class ViewHandler extends Application
                 currentScene.setRoot(root);
                 String title = "Heater Main Menu - Group 3";
                 primaryStage.setTitle(title);
+                primaryStage.setAlwaysOnTop(true);
                 primaryStage.setResizable(false);
                 primaryStage.setScene(currentScene);
                 primaryStage.setWidth(root.getPrefWidth());
