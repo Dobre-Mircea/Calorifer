@@ -1,13 +1,12 @@
 package view;
 
-import ViewModel.HeaterViewModel;
 import ViewModel.ViewModelFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import model.HeaterModel;
 
 public class ViewHandler extends Application
 {
@@ -45,6 +44,7 @@ public class ViewHandler extends Application
                 currentScene.setRoot(root);
                 String title = "Heater Main Menu - Group 3";
                 primaryStage.setTitle(title);
+                primaryStage.setResizable(false);
                 primaryStage.setScene(currentScene);
                 primaryStage.setWidth(root.getPrefWidth());
                 primaryStage.setHeight(root.getPrefHeight());
@@ -56,6 +56,7 @@ public class ViewHandler extends Application
                 secoundScene.setRoot(root2);
                 String title2 = "WARNING";
                 secoundStage.setTitle(title2);
+                secoundStage.setResizable(false);
                 secoundStage.setScene(secoundScene);
                 secoundStage.setWidth(root2.getPrefWidth());
                 secoundStage.setHeight(root2.getPrefHeight());

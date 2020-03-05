@@ -10,13 +10,13 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="325.0" prefWidth="471.0" spacing="10.0" style="-fx-background-color: #949494;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HeaterViewController">
+<VBox alignment="TOP_CENTER" prefHeight="349.0" prefWidth="471.0" spacing="10.0" style="-fx-background-color: #949494;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HeaterViewController">
    <children>
       <HBox>
          <children>
             <Label alignment="CENTER" prefHeight="35.0" prefWidth="597.0" text="Heater Assignment" textAlignment="CENTER">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Algerian" size="31.0" />
                </font>
             </Label>
          </children>
@@ -28,20 +28,21 @@
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Button>
-            <VBox prefHeight="83.0" prefWidth="129.0">
+            <AnchorPane prefHeight="83.0" prefWidth="139.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="597.0" text="Heater Level:">
+                  <Label alignment="CENTER" layoutY="-14.0" prefHeight="35.0" prefWidth="144.0" text="Heater Level:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="currentSetting" alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="137.0" style="-fx-border-color: #000000;" text="Level" textAlignment="CENTER">
+                  <Circle fill="DODGERBLUE" layoutX="72.0" layoutY="42.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label fx:id="currentSetting" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="11.0" prefHeight="43.0" prefWidth="34.0" text="0" textAlignment="CENTER">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="42.0" />
                      </font>
                   </Label>
                </children>
-            </VBox>
+            </AnchorPane>
             <Button fx:id="heaterUp" mnemonicParsing="false" onAction="#heaterUp" prefHeight="65.0" prefWidth="130.0" text="+" textAlignment="CENTER">
                <font>
                   <Font name="Arial Black" size="24.0" />
@@ -64,8 +65,8 @@
                   </Label>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Circle fill="RED" layoutX="77.0" layoutY="71.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
-                        <Label fx:id="insideTemp1" alignment="CENTER" layoutY="39.0" prefHeight="41.0" prefWidth="155.0" text="00.00" textAlignment="CENTER">
+                        <Circle fill="RED" layoutX="78.0" layoutY="66.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Label fx:id="insideTemp1" alignment="CENTER" layoutY="32.0" prefHeight="41.0" prefWidth="155.0" text="00.00" textAlignment="CENTER">
                            <font>
                               <Font size="43.0" />
                            </font>
