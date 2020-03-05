@@ -17,6 +17,9 @@ public class HeaterModelManager implements HeaterModel
     private String outsideTemp;
     private String heaterLevel;
 
+    private final int MAX = 30;
+    private final int MIN = 15;
+
     private HeaterState heaterState;
     ViewHandler view;
 
@@ -31,8 +34,7 @@ public class HeaterModelManager implements HeaterModel
         heaterState = new idleState(this);
         insideTemp1 = "20";
         insideTemp2 = "20";
-        outsideTemp = "12.00";
-
+        outsideTemp = "10.00";
     }
 
     @Override
@@ -80,11 +82,11 @@ public class HeaterModelManager implements HeaterModel
 
         Platform.runLater(()->
         {
-        if((temp < 15 || temp > 30) && !view.popUpOpen())
+        if((temp < MIN || temp > MAX) && !view.popUpOpen())
         {
                         view.openView("popUp");
         }
-        else  if(!(temp < 15 || temp > 30) && view.popUpOpen() && !(Double.parseDouble(insideTemp2) < 15 || Double.parseDouble(insideTemp2) > 30))
+        else  if(!(temp < MIN || temp > MAX) && view.popUpOpen() && !(Double.parseDouble(insideTemp2) < MIN || Double.parseDouble(insideTemp2) > MAX))
 
             view.closePopUp();
 
@@ -102,11 +104,11 @@ public class HeaterModelManager implements HeaterModel
 
         Platform.runLater(()->
         {
-            if((temp < 15 || temp > 30) && !view.popUpOpen())
+            if((temp < MIN || temp > MAX) && !view.popUpOpen())
             {
                 view.openView("popUp");
             }
-            else  if(!(temp < 15 || temp > 30) && view.popUpOpen() && !(Double.parseDouble(insideTemp1) < 15 || Double.parseDouble(insideTemp1) > 30))
+            else  if(!(temp < MIN || temp > MAX) && view.popUpOpen() && !(Double.parseDouble(insideTemp1) < MIN || Double.parseDouble(insideTemp1) > MAX))
 
                 view.closePopUp();
 
