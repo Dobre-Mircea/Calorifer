@@ -17,8 +17,6 @@ public class HeaterModelManager implements HeaterModel
     private String outsideTemp;
     private String heaterLevel;
 
-    private final int MAX = 30;
-    private final int MIN = 15;
 
     private HeaterState heaterState;
     ViewHandler view;
@@ -80,17 +78,6 @@ public class HeaterModelManager implements HeaterModel
             this.insideTemp1 = this.insideTemp1.substring(0, 5);
         support.firePropertyChange("insideTemp1", "", insideTemp1);
 
-        Platform.runLater(()->
-        {
-        if((temp < MIN || temp > MAX) && !view.popUpOpen())
-        {
-                        view.openView("popUp");
-        }
-        else  if(!(temp < MIN || temp > MAX) && view.popUpOpen() && !(Double.parseDouble(insideTemp2) < MIN || Double.parseDouble(insideTemp2) > MAX))
-
-            view.closePopUp();
-
-        });
     }
 
         //if(!(temp < 15 || temp > 22) && view.popUpOpen())

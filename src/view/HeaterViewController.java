@@ -30,6 +30,14 @@ public class HeaterViewController
       this.insideTemp1.textProperty().bind(model.getInsideTemp1Property());
       this.insideTemp2.textProperty().bind(model.getInsideTemp2Property());
       this.currentSetting.textProperty().bind(model.getHeaterState());
+
+      model.getBoolProperty().addListener((observable, oldValue, newValue) ->
+      {
+         if(newValue == true)
+            viewHandler.openView("popUp");
+         else viewHandler.closePopUp();
+      });
+
    }
 
    public void reset()

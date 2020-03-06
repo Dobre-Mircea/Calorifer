@@ -14,6 +14,10 @@ public class HeaterViewModel implements PropertyChangeListener
     private StringProperty outsideTemp;
     private StringProperty heaterState;
     private HeaterModel model;
+    private BooleanProperty bool;
+
+    private final int MAX = 30;
+    private final int MIN = 15;
 
 
     public HeaterViewModel(HeaterModel model)
@@ -23,6 +27,7 @@ public class HeaterViewModel implements PropertyChangeListener
         model.addListener("insideTemp2" , this);
         model.addListener("outsideTemp" , this);
         model.addListener("heaterState" , this);
+        bool = new SimpleBooleanProperty(false);
         this.insideTemp1 = new SimpleStringProperty("Inside temp 1: ");
         this.insideTemp2 = new SimpleStringProperty("Inside temp 2: ");
         this.outsideTemp = new SimpleStringProperty("Outside temp: ");
@@ -37,6 +42,11 @@ public class HeaterViewModel implements PropertyChangeListener
     public StringProperty getInsideTemp2Property()
     {
         return this.insideTemp2;
+    }
+
+    public BooleanProperty getBoolProperty()
+    {
+        return this.bool;
     }
 
     public StringProperty getOutsideTempProperty()
@@ -64,6 +74,8 @@ public class HeaterViewModel implements PropertyChangeListener
         model.getHeaterState().downButton(model);
     }
 
+
+
     @Override
     public void propertyChange(PropertyChangeEvent evt)
     {
@@ -71,6 +83,13 @@ public class HeaterViewModel implements PropertyChangeListener
                 {
                     if(evt.getPropertyName().equals("insideTemp1"))
                     {
+                        if((Double.parseDouble(evt.getNewValue().toString()) < MIN || Double.parseDouble(evt.getNewValue().toString()) && !view.popUpOpen())
+                        {
+                            bool.setValue(true);
+                        }
+                        else  if(!(temp < MIN || temp > MAX) && view.popUpOpen() && !(Double.parseDouble(insideTemp2) < MIN || Double.parseDouble(insideTemp2) > MAX))
+                            bool.setValue(false);
+
                         this.insideTemp1.setValue(evt.getNewValue().toString());
                     }
                     else if(evt.getPropertyName().equals("insideTemp2"))
