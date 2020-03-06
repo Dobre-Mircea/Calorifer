@@ -17,9 +17,6 @@ public class HeaterModelManager implements HeaterModel
     private String outsideTemp;
     private String heaterLevel;
 
-    private final int MAX = 30;
-    private final int MIN = 15;
-
     private HeaterState heaterState;
 
 
@@ -27,9 +24,9 @@ public class HeaterModelManager implements HeaterModel
     {
         support = new PropertyChangeSupport(this);
         heaterState = new idleState(this);
-        insideTemp1 = "20";
-        insideTemp2 = "20";
-        outsideTemp = "10.00";
+        insideTemp1 = "16";
+        insideTemp2 = "16";
+        outsideTemp = "5.00";
     }
 
     @Override

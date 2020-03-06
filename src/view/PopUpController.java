@@ -1,7 +1,14 @@
 package view;
 
 import ViewModel.PopUpViewModel;
+import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 
 
 public class PopUpController
@@ -9,6 +16,7 @@ public class PopUpController
     private ViewHandler viewHandler;
     private PopUpViewModel model;
     private Region root;
+    @FXML Label temperatureLabel;
 
 
     public void init(ViewHandler viewHandler, PopUpViewModel popUpViewModel, Region root)
@@ -16,6 +24,21 @@ public class PopUpController
         this.viewHandler = viewHandler;
         this.model = popUpViewModel;
         this.root = root;
+
+        model.getHotProperty().addListener((observable, oldValue, newValue)->
+                {
+                    if(model.getHotProperty().getValue().equals(true))
+                    {
+                        temperatureLabel.setText("HIGH");
+                        temperatureLabel.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+                    }
+                    else
+                    {
+                        temperatureLabel.setText("LOW");
+                        temperatureLabel.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+                    }
+                }
+        );
     }
 
     public void reset()
