@@ -33,7 +33,7 @@ public class HeaterViewController
 
       model.getBoolProperty().addListener((observable, oldValue, newValue) ->
       {
-         if(newValue == true)
+         if(newValue)
             viewHandler.openView("popUp");
          else viewHandler.closePopUp();
       });

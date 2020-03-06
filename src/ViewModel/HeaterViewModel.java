@@ -83,17 +83,30 @@ public class HeaterViewModel implements PropertyChangeListener
                 {
                     if(evt.getPropertyName().equals("insideTemp1"))
                     {
-                        if((Double.parseDouble(evt.getNewValue().toString()) < MIN || Double.parseDouble(evt.getNewValue().toString()) && !view.popUpOpen())
+                        if((Double.parseDouble(model.getInsideTemp1()) < MIN || Double.parseDouble(model.getInsideTemp1()) > MAX))
                         {
                             bool.setValue(true);
                         }
-                        else  if(!(temp < MIN || temp > MAX) && view.popUpOpen() && !(Double.parseDouble(insideTemp2) < MIN || Double.parseDouble(insideTemp2) > MAX))
+                        else  if(!(Double.parseDouble(model.getInsideTemp1()) < MIN || Double.parseDouble(model.getInsideTemp1()) > MAX) &&
+                                !(Double.parseDouble(model.getInsideTemp2()) < MIN || Double.parseDouble(model.getInsideTemp2()) > MAX))
+                        {
                             bool.setValue(false);
+                        }
 
-                        this.insideTemp1.setValue(evt.getNewValue().toString());
+                        this.insideTemp1.setValue(model.getInsideTemp1());
                     }
                     else if(evt.getPropertyName().equals("insideTemp2"))
                     {
+                        if((Double.parseDouble(model.getInsideTemp2()) < MIN || Double.parseDouble(model.getInsideTemp2()) > MAX))
+                        {
+                            bool.setValue(true);
+                        }
+                        else  if(!(Double.parseDouble(model.getInsideTemp1()) < MIN || Double.parseDouble(model.getInsideTemp1()) > MAX) &&
+                                !(Double.parseDouble(model.getInsideTemp2()) < MIN || Double.parseDouble(model.getInsideTemp2()) > MAX))
+                        {
+                            bool.setValue(false);
+                        }
+
                         this.insideTemp2.setValue(evt.getNewValue().toString());
                     }
                     else if(evt.getPropertyName().equals("outsideTemp"))

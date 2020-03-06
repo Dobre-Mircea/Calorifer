@@ -26,8 +26,6 @@ public interface HeaterModel extends PropertyChangeStuff {
 
     public String getInsideTemp1();
 
-    public void setStuff(ViewHandler view);
-
     public String getOutsideTemp();
 
     public HeaterState getHeaterState();

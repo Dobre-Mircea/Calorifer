@@ -32,8 +32,6 @@ public class MyApplication extends Application
 
     ViewHandler view = new ViewHandler(factory);
 
-    model.setStuff(view);
-
     view.start(primaryStage);
 
     //view.openView("popUp");
