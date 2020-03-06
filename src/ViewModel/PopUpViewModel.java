@@ -50,9 +50,10 @@ public class PopUpViewModel implements PropertyChangeListener
                 {
                     hot.setValue(true);
                 }
-                else if((Double.parseDouble(model.getInsideTemp2()) < MIN || Double.parseDouble(model.getInsideTemp1()) < MIN))
+                if((Double.parseDouble(model.getInsideTemp2()) < MIN || Double.parseDouble(model.getInsideTemp1()) < MIN))
                 {
                     hot.setValue(false);
+                    System.out.println("-------------------------------------");
                 }
             }
             else if(evt.getPropertyName().equals("insideTemp2"))
@@ -61,7 +62,6 @@ public class PopUpViewModel implements PropertyChangeListener
                 {
                     hot.setValue(true);
                 }
-                else hot.setValue(false);
                 if((Double.parseDouble(model.getInsideTemp2()) < MIN || Double.parseDouble(model.getInsideTemp1()) < MIN))
                 {
                     hot.setValue(false);

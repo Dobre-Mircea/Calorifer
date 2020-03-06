@@ -25,17 +25,20 @@ public class PopUpController
         this.model = popUpViewModel;
         this.root = root;
 
+        temperatureLabel.setText("LOW");
+        temperatureLabel.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+
         model.getHotProperty().addListener((observable, oldValue, newValue)->
                 {
+                    if(!model.getHotProperty().getValue().equals(true))
+                    {
+                        temperatureLabel.setText("LOW");
+                        temperatureLabel.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+                    }
                     if(model.getHotProperty().getValue().equals(true))
                     {
                         temperatureLabel.setText("HIGH");
                         temperatureLabel.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-                    }
-                    else
-                    {
-                        temperatureLabel.setText("LOW");
-                        temperatureLabel.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
                     }
                 }
         );
