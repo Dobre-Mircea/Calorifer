@@ -18,9 +18,9 @@ public class HeaterModelManager implements HeaterModel
     {
         support = new PropertyChangeSupport(this);
         heaterState = new idleState(this);
-        insideTemp1 = "15.4";
-        insideTemp2 = "16";
-        outsideTemp = "5.00";
+        insideTemp1 = "20";
+        insideTemp2 = "20";
+        outsideTemp = "15.00";
     }
 
     @Override
