@@ -1,10 +1,4 @@
 package model;
-
-import ViewModel.ViewModelFactory;
-import javafx.application.Platform;
-import javafx.stage.Stage;
-import view.ViewHandler;
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 

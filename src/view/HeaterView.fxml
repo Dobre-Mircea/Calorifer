@@ -65,7 +65,7 @@
                   </Label>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Circle fill="RED" layoutX="78.0" layoutY="66.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle fx:id="temp1Circle" fill="RED" layoutX="78.0" layoutY="66.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
                         <Label fx:id="insideTemp1" alignment="CENTER" layoutY="32.0" prefHeight="41.0" prefWidth="155.0" text="00.00" textAlignment="CENTER">
                            <font>
                               <Font size="43.0" />
@@ -79,7 +79,7 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Circle fill="#09ff00" layoutX="79.0" layoutY="94.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle fx:id="outsideCircle" fill="#09ff00" layoutX="79.0" layoutY="94.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
                         <Label alignment="CENTER" layoutY="-4.0" prefHeight="35.0" prefWidth="157.0" text="Outside temp:">
                            <font>
                               <Font size="18.0" />
@@ -96,7 +96,7 @@
             </VBox>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Circle fill="RED" layoutX="79.0" layoutY="94.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+                  <Circle fx:id="temp2Circle" fill="RED" layoutX="79.0" layoutY="94.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
                   <Label fx:id="insideTemp2" alignment="CENTER" layoutX="23.0" layoutY="62.0" prefHeight="41.0" prefWidth="111.0" text="00.00" textAlignment="CENTER">
                      <font>
                         <Font size="43.0" />

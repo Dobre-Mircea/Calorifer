@@ -1,10 +1,4 @@
 package model;
-
-import ViewModel.ViewModelFactory;
-import javafx.stage.Stage;
-import view.ViewHandler;
-
-import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public interface HeaterModel extends PropertyChangeStuff {

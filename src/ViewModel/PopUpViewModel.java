@@ -3,14 +3,10 @@ package ViewModel;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import model.HeaterModel;
-import model.PropertyChangeStuff;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 
 public class PopUpViewModel implements PropertyChangeListener
 {
@@ -53,7 +49,6 @@ public class PopUpViewModel implements PropertyChangeListener
                 if((Double.parseDouble(model.getInsideTemp2()) < MIN || Double.parseDouble(model.getInsideTemp1()) < MIN))
                 {
                     hot.setValue(false);
-                    System.out.println("-------------------------------------");
                 }
             }
             else if(evt.getPropertyName().equals("insideTemp2"))
